@@ -33,22 +33,12 @@ module.exports.all = function(req, res) {
     }).populate('postedBy', '_id username');
 };
 
-/*module.exports.create = function(req, res) {
-  var article = new Article(req.body);
-  article.user = req.user;
-  article.save(function(err, data) {
-    if (err) {
-      return res.status(400).send({
-
-  				message: errorHandler.getErrorMessage(err)
-  			});
-    } else {
-      res.status(200).send(data);
-    }
-  });
-};*/
 module.exports.create = function(req, res) {
   var article = new Article(req.body);
+  if(article.rating || article.rating<0 || article.rating > 5){
+    
+    message: "Rating should be between 0 to 5"
+  }
   article.postedBy = req.user;
   article.save(function(err, data) {
     if (err) {

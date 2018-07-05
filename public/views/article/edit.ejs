@@ -7,9 +7,13 @@
 <p>Author:</p>
 <input type="text" id="author" value="<%=article.author%>"/><br/><br/>
 <p>Link:</p>
-<input type="text" id="link" value="<%=article.link%>"/><br/><br/>
+<input type="text" id="link" value="<%=article.link%>"/><br/><br/
+<p>Imagelink</p>
+<input type="text" id= "Imagelink" value="<%=article.Imagelink%>"/><br/><br/>
 <p>Summary</p>
 <textarea id="summary"><%=article.summary%></textarea><br/><br/>
+<p>Rating</p>
+<input type= "number" id="rating" min="0" max="5" value="<%=article.rating%>"/><br/><br/>
 <button id="submit">Submit</button>
 <div id="error"></div>
       
@@ -24,7 +28,9 @@ var articleID = <%- JSON.stringify(article._id) %>;
 updatedArticle.title = $('#title').val();
 updatedArticle.author = $('#author').val();
 updatedArticle.link = $('#link').val();
+updatedArticle.Imagelink = $('#Imagelink').val();
 updatedArticle.summary = $('#summary').val();
+updatedArticle.rating = $('#rating').val();
 
 $.ajax({
 method: "PUT",

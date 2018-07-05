@@ -27,6 +27,15 @@ var ArticleSchema = {
     default: '',
     trim: true
   },
+  Imagelink:{
+    type: String,
+    required: 'Rating Required'
+  },
+  rating:{
+    type: Number,
+    required:'Rating Required'
+  },
+    
   postedBy: {
     type: Schema.ObjectId,
     ref: 'User'
